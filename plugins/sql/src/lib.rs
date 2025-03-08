@@ -134,6 +134,10 @@ impl Builder {
         self
     }
 
+    pub fn sqlite(mut self) -> Self {
+        self.sqlite()
+    }
+
     pub fn build<R: Runtime>(mut self) -> TauriPlugin<R, Option<PluginConfig>> {
         PluginBuilder::<R, Option<PluginConfig>>::new("sql")
             .invoke_handler(tauri::generate_handler![
